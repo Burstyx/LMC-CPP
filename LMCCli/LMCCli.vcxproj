@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9F344C74-2285-43B8-89D3-AADF090F74BB}</ProjectGuid>
+    <ProjectGuid>{B145EEC4-B3CD-4253-9F23-CEEDD56478BC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LMCCli</RootNamespace>
+    <RootNamespace>LMC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -154,11 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LMCCli.cpp" />
-    <ClCompile Include="MicrosoftAccount.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MicrosoftAccount.h" />
+    <ClCompile Include="LMC.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

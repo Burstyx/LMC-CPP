@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LMCCli.cpp">
+    <ClCompile Include="LMC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
