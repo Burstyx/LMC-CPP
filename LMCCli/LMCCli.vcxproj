@@ -154,26 +154,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="commands\InstanceCommand.cpp" />
-    <ClCompile Include="commands\LaunchCommand.cpp" />
-    <ClCompile Include="core\Instance.cpp" />
-    <ClCompile Include="handlers\CommandHandler.cpp" />
+    <ClCompile Include="Commands\InstanceCommand.cpp" />
+    <ClCompile Include="Commands\LaunchCommand.cpp" />
+    <ClCompile Include="Core\Instance.cpp" />
+    <ClCompile Include="Handlers\CommandHandler.cpp" />
     <ClCompile Include="LMC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="commands\Command.h" />
-    <ClInclude Include="commands\InstanceCommand.h" />
-    <ClInclude Include="commands\LaunchCommand.h" />
-    <ClInclude Include="core\Instance.h" />
-    <ClInclude Include="exceptions\commands\CommandException.h" />
-    <ClInclude Include="exceptions\commands\CommandInvalidArgumentsException.h" />
-    <ClInclude Include="exceptions\commands\CommandNotFoundException.h" />
-    <ClInclude Include="exceptions\instances\InstanceException.h" />
-    <ClInclude Include="exceptions\instances\InstanceNotFoundException.h" />
-    <ClInclude Include="handlers\CommandHandler.h" />
+    <ClInclude Include="Commands\Command.h" />
+    <ClInclude Include="Commands\InstanceCommand.h" />
+    <ClInclude Include="Commands\LaunchCommand.h" />
+    <ClInclude Include="Core\Instance.h" />
+    <ClInclude Include="Exceptions\commands\CommandException.h" />
+    <ClInclude Include="Exceptions\commands\CommandInvalidArgumentsException.h" />
+    <ClInclude Include="Exceptions\commands\CommandNotFoundException.h" />
+    <ClInclude Include="Exceptions\instances\InstanceException.h" />
+    <ClInclude Include="Exceptions\instances\InstanceNotFoundException.h" />
+    <ClInclude Include="Handlers\CommandHandler.h" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="minecraft\" />
+    <Folder Include="Minecraft\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
