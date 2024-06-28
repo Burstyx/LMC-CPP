@@ -3,15 +3,19 @@
 #include "../commands/launch_command.h"
 #include "../exceptions/commands/command_not_found_exception.h"
 
-void command_handler(const char* command, const char* args[])
+std::vector<Command*> commands = {
+    new LaunchCommand()
+};
+
+void commandHandler(const char* command, char* args[])
 {
-    switch (command)
+    for (const auto& currentCmd : commands)
     {
-        case "launch":
-            launch_command cmd{};
-            cmd.handler(args);
-            break;
-        default:
-            throw command_not_found_exception("Cannot find command ");
+        if (strcmp(command, currentCmd->name().c_str()) == 0)
+        {
+            currentCmd->handler(args);
+            return;
+        }
     }
+    throw CommandNotFoundException(command);
 }

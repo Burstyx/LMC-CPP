@@ -1,13 +1,29 @@
 ﻿#include "launch_command.h"
 
-void handler(const char* args[])
+#include <iostream>
+
+void LaunchCommand::launch()
 {
+    std::cout << "start mc" << '\n';
 }
 
-void launch_command()
+void LaunchCommand::launch(const std::string& instanceName)
 {
+    std::cout << "start mc " << instanceName << '\n';
 }
 
-void launch_command(const char* instance_name)
+void LaunchCommand::handler(char* args[])
+{
+    if (args[0] == nullptr)
+    {
+        launch();
+    }
+    else
+    {
+        launch(args[0]);
+    }
+}
+
+void LaunchCommand::help()
 {
 }

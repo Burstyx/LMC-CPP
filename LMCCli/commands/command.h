@@ -2,27 +2,30 @@
 #include <string>
 #include <vector>
 
-class command
+class Command
 {
-protected:
-    ~command() = default;
+    const std::string _name;
+    const std::vector<std::string> _aliases;
 
 public:
-    const std::string name;
-    std::vector<std::string> aliases;
-
-    command(std::string name, const std::vector<std::string>& aliases) : name(std::move(name)), aliases(aliases) {}
-
+    Command(std::string name, std::vector<std::string> aliases) : _name(std::move(name)), _aliases(std::move(aliases)) {}
+    
+    std::string name() const { return _name; }
+    std::vector<std::string> aliases() const { return _aliases; }
+    
     /**
-    * Handle arguments
+    * Handle command arguments.
     *
     * @param args Command arguments
     * @throw command_invalid_arguments_exception If arguments are invalid
      */
-    virtual void handler(const char* args[]) = 0;
+    virtual void handler(char* args[]) = 0;
+
+protected:
+    ~Command() = default;
 
     /**
-     * Print help message
+     * Print help message.
      */
     virtual void help() = 0;
 };

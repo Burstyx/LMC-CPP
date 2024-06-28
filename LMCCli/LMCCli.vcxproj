@@ -156,7 +156,7 @@
   <ItemGroup>
     <ClCompile Include="commands\launch_command.cpp" />
     <ClCompile Include="handlers\command_handler.cpp" />
-    <ClCompile Include="LMC.cpp" />
+    <ClCompile Include="lmc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commands\command.h" />
@@ -164,6 +164,8 @@
     <ClInclude Include="exceptions\commands\command_exception.h" />
     <ClInclude Include="exceptions\commands\command_invalid_arguments_exception.h" />
     <ClInclude Include="exceptions\commands\command_not_found_exception.h" />
+    <ClInclude Include="exceptions\instances\instance_exception.h" />
+    <ClInclude Include="exceptions\instances\instance_not_found_exception.h" />
     <ClInclude Include="handlers\command_handler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

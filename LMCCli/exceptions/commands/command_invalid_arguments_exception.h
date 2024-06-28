@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "command_exception.h"
 
-class command_invalid_arguments_exception final : public command_exception
+class CommandInvalidArgumentsException final : public CommandException
 {
 public:
-    explicit command_invalid_arguments_exception(const char* msg) : command_exception(msg) { }
+    explicit CommandInvalidArgumentsException(const char* msg) : CommandException(msg) { }
 };

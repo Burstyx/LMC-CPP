@@ -1,3 +1,3 @@
 ﻿#pragma once
 
-void command_handler(const char* command, const char* args[]);
+void commandHandler(const char* command, char* args[]);
