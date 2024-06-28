@@ -1,8 +1,8 @@
 
 #include <iostream>
 
-#include "exceptions/commands/command_exception.h"
-#include "handlers/command_handler.h"
+#include "exceptions/commands/CommandException.h"
+#include "handlers/CommandHandler.h"
 
 int main(int argc, char* argv[])
 {

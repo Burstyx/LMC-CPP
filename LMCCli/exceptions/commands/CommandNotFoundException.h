@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "command_exception.h"
+#include "CommandException.h"
 
 class CommandNotFoundException final : public CommandException
 {

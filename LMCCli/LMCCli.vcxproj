@@ -154,19 +154,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="commands\launch_command.cpp" />
-    <ClCompile Include="handlers\command_handler.cpp" />
-    <ClCompile Include="lmc.cpp" />
+    <ClCompile Include="commands\InstanceCommand.cpp" />
+    <ClCompile Include="commands\LaunchCommand.cpp" />
+    <ClCompile Include="core\Instance.cpp" />
+    <ClCompile Include="handlers\CommandHandler.cpp" />
+    <ClCompile Include="LMC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="commands\command.h" />
-    <ClInclude Include="commands\launch_command.h" />
-    <ClInclude Include="exceptions\commands\command_exception.h" />
-    <ClInclude Include="exceptions\commands\command_invalid_arguments_exception.h" />
-    <ClInclude Include="exceptions\commands\command_not_found_exception.h" />
-    <ClInclude Include="exceptions\instances\instance_exception.h" />
-    <ClInclude Include="exceptions\instances\instance_not_found_exception.h" />
-    <ClInclude Include="handlers\command_handler.h" />
+    <ClInclude Include="commands\Command.h" />
+    <ClInclude Include="commands\InstanceCommand.h" />
+    <ClInclude Include="commands\LaunchCommand.h" />
+    <ClInclude Include="core\Instance.h" />
+    <ClInclude Include="exceptions\commands\CommandException.h" />
+    <ClInclude Include="exceptions\commands\CommandInvalidArgumentsException.h" />
+    <ClInclude Include="exceptions\commands\CommandNotFoundException.h" />
+    <ClInclude Include="exceptions\instances\InstanceException.h" />
+    <ClInclude Include="exceptions\instances\InstanceNotFoundException.h" />
+    <ClInclude Include="handlers\CommandHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="minecraft\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

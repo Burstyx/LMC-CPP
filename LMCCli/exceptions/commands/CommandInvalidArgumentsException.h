@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "command_exception.h"
+#include "CommandException.h"
 
 class CommandInvalidArgumentsException final : public CommandException
 {

@@ -1,7 +1,7 @@
-﻿#include "command_handler.h"
+﻿#include "CommandHandler.h"
 
-#include "../commands/launch_command.h"
-#include "../exceptions/commands/command_not_found_exception.h"
+#include "../commands/LaunchCommand.h"
+#include "../exceptions/commands/CommandNotFoundException.h"
 
 std::vector<Command*> commands = {
     new LaunchCommand()
