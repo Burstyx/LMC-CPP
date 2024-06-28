@@ -3,13 +3,15 @@
 #include "../commands/launch_command.h"
 #include "../exceptions/commands/command_not_found_exception.h"
 
-void command_handler(const char* command, char* args[])
+void command_handler(const char* command, const char* args[])
 {
     switch (command)
     {
         case "launch":
-            launch_command_handler(args);
+            launch_command cmd{};
+            cmd.handler(args);
+            break;
         default:
-            throw command_not_found_exception("Cannot find command " + command);
+            throw command_not_found_exception("Cannot find command ");
     }
 }

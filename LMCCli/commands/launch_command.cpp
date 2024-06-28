@@ -1,6 +1,6 @@
 ﻿#include "launch_command.h"
 
-void launch_command_handler(char* args[])
+void handler(const char* args[])
 {
 }
 
@@ -8,6 +8,6 @@ void launch_command()
 {
 }
 
-void launch_command(char* instance_name)
+void launch_command(const char* instance_name)
 {
 }
