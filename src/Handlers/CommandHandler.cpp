@@ -1,5 +1,7 @@
 ﻿#include "CommandHandler.h"
 
+#include <cstring>
+
 #include "../Commands/LaunchCommand.h"
 #include "../Exceptions/commands/CommandNotFoundException.h"
 

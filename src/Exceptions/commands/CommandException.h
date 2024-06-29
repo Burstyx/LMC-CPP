@@ -8,5 +8,5 @@ class CommandException : public std::exception
 public:
     explicit CommandException(const char* msg) : message_(msg) { }
     
-    char const* what() const override { return message_; }
+    [[nodiscard]] const char *what() const noexcept override;
 };

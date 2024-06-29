@@ -4,7 +4,7 @@
 #include "Exceptions/commands/CommandException.h"
 #include "Handlers/CommandHandler.h"
 
-int main(int argc, char* argv[])
+int main(const int argc, char* argv[])
 {
     if(argc < 2) { std::cout << "No command provided\n"; return 1; }
     

@@ -11,8 +11,8 @@ public:
     explicit Command(std::string name, std::vector<std::string> aliases)
         : _name(std::move(name)), _aliases(std::move(aliases)) { }
     
-    std::string name() const { return _name; }
-    std::vector<std::string> aliases() const { return _aliases; }
+    [[nodiscard]] std::string name() const { return _name; }
+    [[nodiscard]] std::vector<std::string> aliases() const { return _aliases; }
     
     /**
     * Handle command arguments.
