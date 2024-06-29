@@ -8,5 +8,5 @@ class InstanceException : public std::exception
 public:
     explicit InstanceException(const char* msg) : message_(msg) { }
     
-    [[nodiscard]] char const* what() const override { return message_; }
+    [[nodiscard]] const char* what() const noexcept override { return message_; }
 };

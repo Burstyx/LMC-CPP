@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-class instance_command
+class InstanceCommand
 {
 public:
     

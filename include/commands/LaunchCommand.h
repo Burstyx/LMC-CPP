@@ -4,14 +4,14 @@
 class LaunchCommand final : public Command
 {
     /*
-     * Starts the last played Minecraft instance.
+     * Starts the last played minecraft instance.
      *
      * @throws InstanceNotFoundException If there is no last played instance.
      */
     void launch();
 
     /*
-     * Starts the Minecraft instance with the given name.
+     * Starts the minecraft instance with the given name.
      *
      * @param instanceName The name of the instance to start.
      * @throws InstanceNotFoundException If the instance with the given name does not exist.
