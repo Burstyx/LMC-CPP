@@ -9,4 +9,6 @@ class Instance final
     
 public:
     explicit Instance(std::string name, std::string version);
+
+    void saveToFile();
 };
