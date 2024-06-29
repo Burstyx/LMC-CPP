@@ -8,11 +8,10 @@ class Command
     const std::vector<std::string> _aliases;
 
 public:
-    explicit Command(std::string name, std::vector<std::string> aliases)
-        : _name(std::move(name)), _aliases(std::move(aliases)) { }
+    explicit Command(std::string name, std::vector<std::string> aliases);
     
-    [[nodiscard]] std::string name() const { return _name; }
-    [[nodiscard]] std::vector<std::string> aliases() const { return _aliases; }
+    [[nodiscard]] std::string name() const;
+    [[nodiscard]] std::vector<std::string> aliases() const;
     
     /**
     * Handle command arguments.

@@ -4,5 +4,5 @@
 class InstanceNotFoundException final : public InstanceException
 {
 public:
-    explicit InstanceNotFoundException(const char* msg) : InstanceException(msg) { }
+    explicit InstanceNotFoundException(const char* msg);
 };

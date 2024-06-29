@@ -6,7 +6,7 @@ class CommandException : public std::exception
     const char* message_;
     
 public:
-    explicit CommandException(const char* msg) : message_(msg) { }
-    
-    [[nodiscard]] const char* what() const noexcept override { return message_; }
+    explicit CommandException(const char* msg);
+
+    [[nodiscard]] const char* what() const noexcept override;
 };

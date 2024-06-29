@@ -6,7 +6,7 @@ class InstanceException : public std::exception
     const char* message_;
     
 public:
-    explicit InstanceException(const char* msg) : message_(msg) { }
+    explicit InstanceException(const char* msg);
     
-    [[nodiscard]] const char* what() const noexcept override { return message_; }
+    [[nodiscard]] const char* what() const noexcept override;
 };
