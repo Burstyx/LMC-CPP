@@ -19,7 +19,8 @@ set(SOURCES
         src/exceptions/commands/CommandInvalidArgumentsException.cpp
         src/exceptions/commands/CommandNotFoundException.cpp
         src/exceptions/instances/InstanceException.cpp
-        src/exceptions/instances/InstanceNotFoundException.cpp)
+        src/exceptions/instances/InstanceNotFoundException.cpp
+        src/handlers/FsHandler.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
@@ -28,3 +29,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 ## Libraries
 add_subdirectory(libraries/tomlplusplus)
 target_link_libraries(${PROJECT_NAME} PRIVATE tomlplusplus)
+
+add_subdirectory(libraries/sha1)
+target_link_libraries(${PROJECT_NAME} PRIVATE sha1)
