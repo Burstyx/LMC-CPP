@@ -4,11 +4,15 @@
 class Instance final
 {
     std::string _name;
-    std::string _version;
     bool _playing;
-    
+    unsigned long _timePlayed;
+    unsigned long _lastPlayed;
+
+    std::string _version;
+    std::string _loader;
+
 public:
-    explicit Instance(std::string name, std::string version);
+    explicit Instance(std::string name, std::string version, std::string loader);
 
     void saveToFile();
 };
