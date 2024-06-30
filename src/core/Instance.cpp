@@ -2,7 +2,8 @@
 
 #include <sstream>
 #include <handlers/FsHandler.h>
-#include <toml++/impl/table.hpp>
+
+#include "toml++/toml.hpp"
 
 Instance::Instance(std::string name, std::string version, std::string loader)
     : _name(std::move(name)),
@@ -30,5 +31,5 @@ void Instance::saveToFile() {
     std::stringstream ss;
     ss << root_table;
 
-    createFile("instances/" + _name, "instance.toml", ss.str());
+    createFile("instances\\" + _name, "instance.toml", ss.str());
 }
