@@ -3,10 +3,10 @@ description: File a bug report
 labels: [bug, to-review]
 body:
 - type: dropdown
+  id: os
   attributes:
     label: Operating System
     description: Known operating system where the bug has occured.
-    id: os
     multiple: true
     options:
     - Windows
