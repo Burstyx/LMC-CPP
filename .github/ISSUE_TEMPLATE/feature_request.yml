@@ -1,38 +1,22 @@
 name: Suggest a feature
 description: Describe your feature idea.
-labels: [feature]
+labels: [feature, to-review]
 body:
 - type: markdown
   attributes:
     value: |
-      ### Use this form to suggest a feature for MultiMC.
+      ### Use this form to suggest a feature for LMC.
 - type: input
   attributes:
-    label: Role
-    description: In what way do you use MultiMC that needs this feature?
-    placeholder: I play modded Minecraft.
+    label: Description
+    description: Describe how your feature idea should work.
+    placeholder: I want to add an instance system which should...
   validations:
     required: true
-- type: input
-  attributes:
-    label: Suggestion
-    description: What do you want MultiMC to do?
-    placeholder: I want the cat button to meow.
-  validations:
-    required: true
-- type: input
-  attributes:
-    label: Benefit
-    description: Why do you need MultiMC to do this?
-    placeholder: so that I can always hear a cat when I need to.
-  validations:
-    required: true
-- type: checkboxes
-  attributes:
-    label: This suggestion is unique
-    options:
-    - label: I have searched the issue tracker and did not find an issue describing my suggestion, especially not one that has been rejected.
-      required: true      
 - type: textarea
   attributes:
-    label: You may use the editor below to elaborate further.
+    label: Integration
+    description: Explain how this feature should be integrated in LMC.
+    placeholder: By using the command...
+  validations:
+    required: true
