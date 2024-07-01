@@ -10,7 +10,7 @@ body:
   attributes:
     label: Description
     description: Describe how your feature idea should work.
-    placeholder: I want to add an instance system which should...
+    placeholder: This feature should work using commands like:\...
   validations:
     required: true
 - type: textarea
