@@ -22,7 +22,5 @@ public:
     LaunchCommand() : Command("launch", {"lch", "l"}) { }
     
     void handler(char* args[]) override;
-
-protected:
     void help() override;
 };

@@ -15,7 +15,5 @@ public:
     InstanceCommand() : Command("instance", {"i"}) { }
 
     void handler(char* args[]) override;
-
-protected:
     void help() override;
 };

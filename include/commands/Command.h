@@ -21,11 +21,11 @@ public:
      */
     virtual void handler(char* args[]) = 0;
 
-protected:
-    ~Command() = default;
-
     /**
      * Print help message.
      */
     virtual void help() = 0;
+
+protected:
+    ~Command() = default;
 };
