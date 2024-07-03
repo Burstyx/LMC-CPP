@@ -14,13 +14,14 @@ set(SOURCES
         src/handlers/CommandHandler.cpp
         src/minecraft/Minecraft.cpp
         src/minecraft/Vanilla.cpp
-        src/commands/Command.cpp
         src/exceptions/commands/CommandException.cpp
         src/exceptions/commands/CommandInvalidArgumentsException.cpp
         src/exceptions/commands/CommandNotFoundException.cpp
         src/exceptions/instances/InstanceException.cpp
         src/exceptions/instances/InstanceNotFoundException.cpp
-        src/handlers/FsHandler.cpp)
+        src/handlers/FsHandler.cpp
+        src/commands/Command.cpp
+)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

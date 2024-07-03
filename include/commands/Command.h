@@ -1,31 +1,15 @@
-﻿#pragma once
+#pragma once
+#include <map>
 #include <string>
 #include <vector>
 
-class Command
-{
-    const std::string _name;
-    const std::vector<std::string> _aliases;
-
+class Command {
 public:
-    explicit Command(std::string name, std::vector<std::string> aliases);
-    
-    [[nodiscard]] std::string name() const;
-    [[nodiscard]] std::vector<std::string> aliases() const;
-    
-    /**
-    * Handle command arguments.
-    *
-    * @param args Command arguments
-    * @throw command_invalid_arguments_exception If arguments are invalid
-     */
-    virtual void handler(char* args[]) = 0;
+    virtual ~Command() = default;
 
-    /**
-     * Print help message.
-     */
-    virtual void help() = 0;
+    [[nodiscard]] virtual const std::vector<std::string> &getAliases() const = 0;
+    [[nodiscard]] virtual const std::vector<std::string> &getAuthorizedOptions() const = 0;
+    [[nodiscard]] virtual const std::string &getHelp() const = 0;
 
-protected:
-    ~Command() = default;
+    virtual void handler(char *args[]) = 0;
 };

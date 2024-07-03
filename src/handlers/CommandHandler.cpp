@@ -2,27 +2,16 @@
 
 #include <cstring>
 #include <iostream>
-#include <commands/InstanceCommand.h>
 #include <exceptions/commands/CommandInvalidArgumentsException.h>
 
 #include "commands/LaunchCommand.h"
 #include "exceptions/commands/CommandNotFoundException.h"
 
-class CommandInvalidArgumentsException;
-std::vector<Command*> commands = {
-    new LaunchCommand(),
-    new InstanceCommand()
-};
 
-void commandHandler(const char* command, char* args[]) {
-    for (const auto& currentCmd : commands) {
+void commandHandler(const char *command, char *args[], const std::vector<Command*> &commands) {
+    for (const auto &currentCmd : commands) {
         try {
-            if (strcmp(command, currentCmd->name().c_str()) == 0) {
-                currentCmd->handler(args);
-                return;
-            }
-
-            for (const auto& alias : currentCmd->aliases()) {
+            for (const auto &alias : currentCmd->getAliases()) {
                 if (strcmp(command, alias.c_str()) == 0) {
                     currentCmd->handler(args);
                     return;
@@ -30,8 +19,14 @@ void commandHandler(const char* command, char* args[]) {
             }
         } catch (const CommandInvalidArgumentsException& e) {
             std::cerr << e.what() << '\n';
-            currentCmd->help();
+            std::cout << currentCmd->getHelp() << '\n';
         }
     }
     throw CommandNotFoundException(command);
+}
+
+std::string parseArgs(char *args[], const char *shortOption, const char *longOption, const char *defaultValue) {
+    for (int i = 0; args[i] != nullptr; ++i)
+        if ((strcmp(args[i], shortOption) == 0 || strcmp(args[i], longOption) == 0) && args[i + 1] != nullptr) return args[i + 1];
+    return defaultValue;
 }
