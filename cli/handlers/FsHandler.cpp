@@ -3,7 +3,6 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <strstream>
 #include <vector>
 
 void createFile(const std::string& subfolder, const std::string& filename, const std::string& content) {
@@ -29,7 +28,7 @@ std::string getFile(const std::string &subfolder, const std::string &filename) {
     const std::string fullpath = path + "\\" + filename;
 
     if(std::ifstream fileStream(fullpath); fileStream.is_open()) {
-        std::strstream buffer;
+        std::stringstream buffer;
         buffer << fileStream.rdbuf();
 
         fileStream.close();
