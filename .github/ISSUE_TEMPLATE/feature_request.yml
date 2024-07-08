@@ -1,0 +1,22 @@
+name: Suggest a feature
+description: Describe your feature idea.
+labels: [feature, to-review]
+body:
+- type: markdown
+  attributes:
+    value: |
+      ### Use this form to suggest a feature for LMC.
+- type: input
+  attributes:
+    label: Description
+    description: Describe how your feature idea should work.
+    placeholder: This feature should work using commands like:\...
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Integration
+    description: Explain how this feature should be integrated in LMC.
+    placeholder: By using the command...
+  validations:
+    required: true
