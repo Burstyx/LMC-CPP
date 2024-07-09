@@ -1,4 +1,4 @@
-#include "exceptions/instances/InstanceException.h"
+#include <exceptions/instances/InstanceException.h>
 
 InstanceException::InstanceException(const char *msg) : message_(msg) {
 }

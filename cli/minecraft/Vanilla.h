@@ -1,5 +1,5 @@
 #pragma once
-#include "Minecraft.h"
+#include <minecraft/Minecraft.h>
 
 class Vanilla final : public Minecraft {
 public:

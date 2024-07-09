@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "InstanceException.h"
+#include <exceptions/instances/InstanceException.h>
 
 class InstanceNotFoundException final : public InstanceException
 {

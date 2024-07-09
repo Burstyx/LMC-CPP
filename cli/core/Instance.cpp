@@ -1,9 +1,8 @@
-﻿#include "core/Instance.h"
+﻿#include <core/Instance.h>
 
 #include <sstream>
 #include <handlers/FsHandler.h>
-
-#include "toml++/toml.hpp"
+#include <toml++/toml.hpp>
 
 Instance::Instance(std::string name, std::string version, std::string loader)
     : _name(std::move(name)),

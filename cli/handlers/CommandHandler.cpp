@@ -1,4 +1,4 @@
-﻿#include "CommandHandler.h"
+﻿#include <handlers/CommandHandler.h>
 
 #include <cstring>
 #include <functional>
@@ -6,8 +6,8 @@
 #include <map>
 #include <memory>
 #include <commands/InstanceCommand.h>
-#include "commands/LaunchCommand.h"
-#include "exceptions/commands/CommandNotFoundException.h"
+#include <commands/LaunchCommand.h>
+#include <exceptions/commands/CommandNotFoundException.h>
 
 
 void commandHandler(const char* command, char* args[]) {

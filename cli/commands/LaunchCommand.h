@@ -1,10 +1,6 @@
 ﻿#pragma once
 #include <string>
-
-#pragma once
-#include <string>
-
-#include "Command.h"
+#include <commands/Command.h>
 
 class LaunchCommand final : public Command {
 public:
