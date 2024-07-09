@@ -1,28 +1,24 @@
 ﻿#include "CommandHandler.h"
 
 #include <cstring>
+#include <functional>
 #include <iostream>
-#include <exceptions/commands/CommandInvalidArgumentsException.h>
-
+#include <map>
+#include <memory>
+#include <commands/InstanceCommand.h>
 #include "commands/LaunchCommand.h"
 #include "exceptions/commands/CommandNotFoundException.h"
 
 
-void commandHandler(const char *command, char *args[], const std::vector<Command*> &commands) {
-    for (const auto &currentCmd : commands) {
-        try {
-            for (const auto &alias : currentCmd->getAliases()) {
-                if (strcmp(command, alias.c_str()) == 0) {
-                    currentCmd->handler(args);
-                    return;
-                }
-            }
-        } catch (const CommandInvalidArgumentsException& e) {
-            std::cerr << e.what() << '\n';
-            std::cout << currentCmd->getHelp() << '\n';
-        }
+void commandHandler(const char* command, char* args[]) {
+    if (const std::map<std::string, std::function<std::unique_ptr<Command>()>> commands = {
+        {"instance", [] { return std::make_unique<InstanceCommand>(); } },
+        {"launch", [] { return std::make_unique<LaunchCommand>(); } }
+    }; commands.find(command) != commands.end()) {
+        commands.at(command)()->handler(args);
+    } else {
+        throw CommandNotFoundException("Command not found.");
     }
-    throw CommandNotFoundException(command);
 }
 
 std::string parseArgs(char *args[], const char *shortOption, const char *longOption, const char *defaultValue) {
