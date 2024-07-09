@@ -41,5 +41,8 @@ namespace LMC {
          * @throws InstanceNotFoundException If there is no instance from the specified name.
          */
         static void Get(const std::string& name);
+
+    private:
+        std::unordered_map<std::string, std::optional<std::string>> InstanceCommand::ParseArgs(char* args[], const std::unordered_map<std::string, std::pair<std::string, std::string>>& expectedArgs)
     };
 }

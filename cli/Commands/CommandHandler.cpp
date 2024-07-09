@@ -2,10 +2,9 @@
 
 #include "InstanceCommand.h"
 #include "LaunchCommand.h"
-#include "../Exceptions/Commands/CommandInvalidArgumentsException.h"
-#include "../Exceptions/Commands/CommandNotFoundException.h"
+#include "Exceptions/Commands/CommandInvalidArgumentsException.h"
+#include "Exceptions/Commands/CommandNotFoundException.h"
 
-#include <cstring>
 #include <functional>
 #include <iostream>
 #include <map>
@@ -30,9 +29,21 @@ namespace LMC {
         }
     }
 
-    std::string ParseArgs(char* args[], const char* shortOption, const char* longOption, const char* defaultValue) {
-        for (int i = 0; args[i] != nullptr; ++i)
-            if ((strcmp(args[i], shortOption) == 0 || strcmp(args[i], longOption) == 0) && args[i + 1] != nullptr) return args[i + 1];
-        return defaultValue;
+    std::unordered_map<std::string, std::optional<std::string>> ParseArgs(char* args[], const std::vector<std::pair<std::string, std::string>>& expectedArgs) {
+        std::unordered_map<std::string, std::optional<std::string>> parsedArgs;
+        // Loop all arguments in args
+        for (size_t i = 0; args[i] != nullptr; i++) {
+            // Loop all expected arguments
+            for (const auto& [shortArg, longArg] : expectedArgs) {
+                // Check if the argument is the expected argument
+                if (args[i] == shortArg || args[i] == longArg) {
+                    // Check if the next argument is not null
+                    if (args[i + 1] != nullptr) {
+                        // Add the argument to the map
+                        parsedArgs[shortArg] = args[i + 1];
+                    }
+                }
+            }
+        }
     }
 }
