@@ -6,36 +6,30 @@
 #include <toml++/toml.hpp>
 
 namespace LMC {
-    Instance::Instance(std::string name, std::string version, std::string loader)
-    : _name(std::move(name)),
-      _timePlayed(0),
-      _lastPlayed(0),
-      _version(std::move(version)),
-      _loader(std::move(loader)) {
-    }
+    Instance::Instance(std::string name, std::string version, std::string loader): m_Name(std::move(name)), m_Version(std::move(version)), m_Loader(std::move(loader)) { }
 
-    Instance::Instance(const std::string& path) {
+    Instance::Instance(const std::string &path) {
         toml::table rootTable = toml::parse_file(path + "\\instance.toml");
 
         const auto instanceTable = rootTable["instance"].as_table();
-        _name = instanceTable->get("name")->value_or("unknown");
-        _timePlayed = instanceTable->get("timePlayed")->value_or(0);
-        _lastPlayed = instanceTable->get("lastPlayed")->value_or(0);
+        m_Name = instanceTable->get("name")->value_or("unknown");
+        m_TimePlayed = instanceTable->get("timePlayed")->value_or(0);
+        m_LastPlayed = instanceTable->get("lastPlayed")->value_or(0);
 
         const auto mcTable = rootTable["minecraft"].as_table();
-        _version = mcTable->get("instance")->value_or("latest");
-        _loader = mcTable->get("loader")->value_or("vanilla");
+        m_Version = mcTable->get("instance")->value_or("latest");
+        m_Loader = mcTable->get("loader")->value_or("vanilla");
     }
 
     void Instance::SaveToFile() {
         toml::table instanceTable;
-        instanceTable.insert_or_assign("name", _name);
-        instanceTable.insert_or_assign("timePlayed", _timePlayed);
-        instanceTable.insert_or_assign("lastPlayed", _lastPlayed);
+        instanceTable.insert_or_assign("name", m_Name);
+        instanceTable.insert_or_assign("timePlayed", m_TimePlayed);
+        instanceTable.insert_or_assign("lastPlayed", m_LastPlayed);
 
         toml::table mcTable;
-        mcTable.insert_or_assign("instance", _version);
-        mcTable.insert_or_assign("loader", _loader);
+        mcTable.insert_or_assign("instance", m_Version);
+        mcTable.insert_or_assign("loader", m_Loader);
 
         toml::table rootTable;
         rootTable.insert_or_assign("instance", instanceTable);
@@ -44,6 +38,6 @@ namespace LMC {
         std::stringstream ss;
         ss << rootTable;
 
-        CreateFile("instances\\" + _name, "instance.toml", ss.str());
+        CreateFile("instances\\" + m_Name, "instance.toml", ss.str());
     }
 }
