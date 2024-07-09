@@ -1,11 +1,11 @@
+#include "Exceptions/Commands/CommandException.h"
+#include "Handlers/CommandHandler.h"
+
 #include <iostream>
 
-#include <exceptions/commands/CommandException.h>
-#include <handlers/CommandHandler.h>
-
 int main(const int argc, char* argv[]) {
-    if(argc < 2) { std::cout << "No command provided\n"; return 1; }
+    if(argc < 2) { std::cerr << "No command provided\n"; return 1; }
     
-    try { commandHandler(argv[1], argv + 2); }
-    catch (const CommandException& e) { std::cout << e.what() << '\n'; }
+    try { LMC::CommandHandler(argv[1], argv + 2); }
+    catch (const LMC::CommandException& e) { std::cerr << e.what() << '\n'; }
 }
