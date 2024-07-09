@@ -1,9 +1,9 @@
-﻿#include "Handlers/CommandHandler.h"
+﻿#include "Commands/CommandHandler.h"
 
-#include "Commands/InstanceCommand.h"
-#include "Commands/LaunchCommand.h"
-#include "Exceptions/Commands/CommandInvalidArgumentsException.h"
-#include "Exceptions/Commands/CommandNotFoundException.h"
+#include "InstanceCommand.h"
+#include "LaunchCommand.h"
+#include "../Exceptions/Commands/CommandInvalidArgumentsException.h"
+#include "../Exceptions/Commands/CommandNotFoundException.h"
 
 #include <cstring>
 #include <functional>

@@ -1,5 +1,5 @@
-#include "Exceptions/Commands/CommandException.h"
-#include "Handlers/CommandHandler.h"
+#include "Exceptions//Commands/CommandException.h"
+#include "Commands/CommandHandler.h"
 
 #include <iostream>
 

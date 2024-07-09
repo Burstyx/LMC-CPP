@@ -3,8 +3,8 @@
 #include "Core/Instance.h"
 #include "Exceptions/Commands/CommandInvalidArgumentsException.h"
 #include "Exceptions/Commands/CommandNotFoundException.h"
-#include "Handlers/CommandHandler.h"
-#include "Handlers/FsHandler.h"
+#include "Commands/CommandHandler.h"
+#include "Core/FileSystem.h"
 
 #include <iostream>
 #include <cstring>

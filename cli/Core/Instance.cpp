@@ -1,6 +1,6 @@
 ﻿#include "Core/Instance.h"
 
-#include "Handlers/FsHandler.h"
+#include "Core/FileSystem.h"
 
 #include <sstream>
 #include <toml++/toml.hpp>
