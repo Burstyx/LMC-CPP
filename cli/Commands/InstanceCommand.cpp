@@ -43,8 +43,7 @@ namespace LMC {
             if(name.empty())
                 throw CommandInvalidArgumentsException("Name argument is invalid.");
 
-            const Instance instance = Instance::GetInstanceFromName(name);
-            Remove(instance);
+            Remove(name);
         }
         else if(strcmp(args[0], "list") == 0) {
             List();
@@ -60,10 +59,10 @@ namespace LMC {
                  "Usage: lmc instance [options]\n"
                  "\n"
                  "Options:\n"
-                 " * create -n|--name <name> [-v|--version <version=\"1.12.2\">] [-l|--loader <loader=\"vanilla\">]: Create a new Minecraft instance.\n"
-                 " * remove -n|--name <name>: Remove a Minecraft instance.\n"
+                 " * create --name <name> [--version <version=\"1.12.2\">] [--loader <loader=\"vanilla\">]: Create a new Minecraft instance.\n"
+                 " * remove --name <name>: Remove a Minecraft instance.\n"
                  " * list: List all Minecraft instances.\n"
-                 " * get -n|--name <name>: List data about a specific Minecraft instance.";
+                 " * get --name <name>: List data about a specific Minecraft instance.";
     }
 
 
@@ -72,7 +71,8 @@ namespace LMC {
         instance.SaveToFile();
     }
 
-    void InstanceCommand::Remove(const Instance& instance) {
+    void InstanceCommand::Remove(const std::string& name) {
+        const Instance instance = Instance::GetInstanceFromName(name);
         instance.DeleteFile();
     }
 
@@ -80,7 +80,7 @@ namespace LMC {
         for (const auto &folder : FileSystem::GetFolders("instances")) {
             try {
                 Instance instance(folder);
-                std::cout << "> " << instance.GetName() << " " << instance.GetVersion() << " " << instance.GetLoader() << '\n';
+                std::cout << " * " << instance.GetName() << " | " << instance.GetVersion() << " | " << instance.GetLoader() << '\n';
             } catch(const std::exception &e) {
                 std::cerr << e.what() << std::endl;
             }

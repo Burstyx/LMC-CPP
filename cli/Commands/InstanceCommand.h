@@ -27,10 +27,10 @@ namespace LMC {
         /**
          * Remove a new Minecraft instance.
          *
-         * @param instance
+         * @param name The name of the instance.
          * @throws InstanceNotFoundException If there is no instance from the specified name.
          */
-        static void Remove(const Instance &instance);
+        static void Remove(const std::string& name);
 
         /**
          * List all Minecraft instances.
