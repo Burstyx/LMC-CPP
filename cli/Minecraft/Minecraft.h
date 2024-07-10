@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
+#include <bits/shared_ptr.h>
+#include <Instances/Instance.h>
 
 namespace LMC {
     class Minecraft {
     public:
-        explicit Minecraft(std::string version);
+        explicit Minecraft(const std::shared_ptr<Instance>& instance);
 
     private:
-        std::string m_Version;
+        std::shared_ptr<Instance> m_Instance;
     };
 }
