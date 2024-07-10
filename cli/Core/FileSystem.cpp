@@ -5,10 +5,9 @@
 #include <iostream>
 #include <vector>
 
-namespace LMC {
+namespace LMC::FileSystem {
     void CreateFile(const std::string& subfolder, const std::string& filename, const std::string& content) {
-        const std::string appdata = std::getenv("APPDATA");
-        const std::string path = appdata + "\\.lmc\\" + subfolder;
+        const std::string path = GetAppPath() + subfolder;
 
         const std::string fullpath = path + "\\" + filename;
 
@@ -22,9 +21,14 @@ namespace LMC {
         }
     }
 
+    void DeleteFolder(const std::string &subfolder) {
+        const std::string path = GetAppPath() + subfolder;
+
+        std::filesystem::remove_all(path);
+    }
+
     std::string GetFile(const std::string &subfolder, const std::string &filename) {
-        const std::string appdata = std::getenv("APPDATA");
-        const std::string path = appdata + "\\.lmc\\" + subfolder;
+        const std::string path = GetAppPath() + subfolder;
 
         const std::string fullpath = path + "\\" + filename;
 
@@ -41,8 +45,7 @@ namespace LMC {
     }
 
     std::vector<std::string> GetFolders(const std::string &subfolder) {
-        const std::string appdata = std::getenv("APPDATA");
-        const std::string path = appdata + "\\.lmc\\" + subfolder;
+        const std::string path = GetAppPath() + subfolder;
 
         std::vector<std::string> folders;
 

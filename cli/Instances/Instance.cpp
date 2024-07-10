@@ -1,4 +1,6 @@
-﻿#include "Core/Instance.h"
+﻿#include "Instances/Instance.h"
+
+#include <iostream>
 
 #include "Core/FileSystem.h"
 
@@ -21,7 +23,7 @@ namespace LMC {
         m_Loader = mcTable->get("loader")->value_or("vanilla");
     }
 
-    void Instance::SaveToFile() {
+    void Instance::SaveToFile() const {
         toml::table instanceTable;
         instanceTable.insert_or_assign("name", m_Name);
         instanceTable.insert_or_assign("timePlayed", m_TimePlayed);
@@ -38,6 +40,14 @@ namespace LMC {
         std::stringstream ss;
         ss << rootTable;
 
-        CreateFile("instances\\" + m_Name, "instance.toml", ss.str());
+        FileSystem::CreateFile("instances\\" + m_Name, "instance.toml", ss.str());
+    }
+
+    void Instance::DeleteFile() const {
+        FileSystem::DeleteFolder("instances\\" + m_Name);
+    }
+
+    Instance Instance::GetInstanceFromName(const std::string &name) {
+        return Instance(FileSystem::GetAppPath() + "instances\\" + name);
     }
 }

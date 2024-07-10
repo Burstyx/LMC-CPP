@@ -1,6 +1,9 @@
 ﻿#pragma once
 
+#include <optional>
 #include <string>
+#include <unordered_map>
+#include <Instances/Instance.h>
 
 #include "CommandBase.h"
 
@@ -24,10 +27,10 @@ namespace LMC {
         /**
          * Remove a new Minecraft instance.
          *
-         * @param name The name of the instance.
+         * @param instance
          * @throws InstanceNotFoundException If there is no instance from the specified name.
          */
-        static void Remove(const std::string& name);
+        static void Remove(const Instance &instance);
 
         /**
          * List all Minecraft instances.
@@ -41,8 +44,5 @@ namespace LMC {
          * @throws InstanceNotFoundException If there is no instance from the specified name.
          */
         static void Get(const std::string& name);
-
-    private:
-        std::unordered_map<std::string, std::optional<std::string>> InstanceCommand::ParseArgs(char* args[], const std::unordered_map<std::string, std::pair<std::string, std::string>>& expectedArgs)
     };
 }
