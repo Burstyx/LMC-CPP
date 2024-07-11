@@ -7,7 +7,7 @@
 namespace LMC {
     class Vanilla final : public Minecraft {
     public:
-        explicit Vanilla(const Instance& instance);
+        explicit Vanilla(Instance instance);
 
         void IntegrityCheck();
     };

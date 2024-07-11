@@ -6,9 +6,9 @@
 namespace LMC {
     class Minecraft {
     public:
-        explicit Minecraft(const std::shared_ptr<Instance>& instance);
+        explicit Minecraft(Instance instance);
 
     private:
-        std::shared_ptr<Instance> m_Instance;
+        Instance m_Instance;
     };
 }

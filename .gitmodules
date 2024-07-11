@@ -1,0 +1,6 @@
+[submodule "libraries/tomlplusplus"]
+	path = libraries/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus.git
+[submodule "libraries/curl"]
+	path = libraries/curl
+	url = https://github.com/curl/curl.git
