@@ -13,5 +13,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE cli)
 add_subdirectory(libraries/tomlplusplus)
 target_link_libraries(${PROJECT_NAME} PRIVATE tomlplusplus::tomlplusplus)
 
-add_subdirectory(libraries/curl)
-target_link_libraries(${PROJECT_NAME} PRIVATE CURL::libcurl)
+add_subdirectory(libraries/cpp-httplib)
+target_link_libraries(${PROJECT_NAME} PRIVATE httplib::httplib)

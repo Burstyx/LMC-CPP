@@ -4,3 +4,6 @@
 [submodule "libraries/curl"]
 	path = libraries/curl
 	url = https://github.com/curl/curl.git
+[submodule "libraries/cpp-httplib"]
+	path = libraries/cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib.git
